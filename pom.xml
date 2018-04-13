@@ -109,7 +109,55 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     
     <!-- 添加Spring依赖的jar包-->  
 	<!-- FIXME 一旦引入spring的包，文件就无法改名，就无法删除--> 
-	
+	<!-- 添加Spring依赖的jar包-->  
+	<!--依赖注入包-->  
+	<dependency>  
+	    <groupId>org.springframework</groupId>  
+	    <artifactId>spring-aop</artifactId>  
+	    <version>${spring.version}</version>  
+	</dependency>  
+	<!--切片包-->  
+	<dependency>  
+	    <groupId>org.springframework</groupId>  
+	    <artifactId>spring-aspects</artifactId>  
+	    <version>${spring.version}</version>  
+	</dependency>  
+	<!-- Beans包-->  
+	<dependency>  
+	    <groupId>org.springframework</groupId>  
+	    <artifactId>spring-beans</artifactId>  
+	    <version>${spring.version}</version>  
+	</dependency>  
+	<!-- 容器包-->  
+	<dependency>  
+	    <groupId>org.springframework</groupId>  
+	    <artifactId>spring-context</artifactId>  
+	    <version>${spring.version}</version>  
+	</dependency>  
+	<!-- 容器依赖包-->  
+	<dependency>  
+	    <groupId>org.springframework</groupId>  
+	    <artifactId>spring-context-support</artifactId>  
+	    <version>${spring.version}</version>  
+	</dependency>  
+	<!-- 核心包-->  
+	<dependency>  
+	    <groupId>org.springframework</groupId>  
+	    <artifactId>spring-core</artifactId>  
+	    <version>${spring.version}</version>  
+	</dependency>  
+	<!-- 表达式包-->  
+	<dependency>  
+	    <groupId>org.springframework</groupId>  
+	    <artifactId>spring-expression</artifactId>  
+	    <version>${spring.version}</version>  
+	</dependency>
+	<!--SpringMVC包-->  
+	<dependency>  
+	    <groupId>org.springframework</groupId>  
+	    <artifactId>spring-webmvc</artifactId>  
+	    <version>${spring.version}</version>  
+	</dependency>  
 	
     <!-- javaEE7.0-->
     <dependency>
@@ -118,6 +166,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
       <version>7.0</version>
       <scope>provided</scope>
     </dependency>
+    
   </dependencies>
   
   <build>

@@ -88,15 +88,7 @@
 		                <td align="right"><font color="#ff4e00">*</font>&nbsp;手机 &nbsp;</td>
 		                <td><input type="text" value="" class="l_tel" name="phone" id="phone" pattern="1[0-9]{10}" required/></td>
 		              	<td><span id="phoneInfo"></span></td>
-		              </tr>
-		              <tr height="50">
-		                <td align="right">邀请人会员名 &nbsp;</td>
-		                <td><input type="text" value="" class="l_mem" name="inviteName" /></td>
-		              </tr>
-		              <tr height="50">
-		                <td align="right">邀请人ID号 &nbsp;</td>
-		                <td><input type="text" value="" class="l_num" name="inviteID"/></td>
-		              </tr>
+		              </tr>		              
 		              <tr height="50">
 		                <td align="right"> <font color="#ff4e00">*</font>&nbsp;验证码 &nbsp;</td>
 		                <td>
