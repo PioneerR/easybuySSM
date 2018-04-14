@@ -13,14 +13,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<setting name="logImpl" value="LOG4J"/>
 	</settings>
 	
-	<!-- TODO -->
 	<!-- 3、为复杂类名设置别名 -->
 	<typeAliases>
-		<typeAlias type="com.yscxsss.category.entity.Category" alias="Category" />
-		<typeAlias type="com.yscxsss.product.entity.Product" alias="Product" />
-		<typeAlias type="com.yscxsss.user.entity.User" alias="User" />
-		<typeAlias type="com.yscxsss.order.entity.Order" alias="Order" />
-		<typeAlias type="com.yscxsss.admin.entity.Admin" alias="Admin" />		
+		<package name="com.easybuy.entity"/>
 	</typeAliases>
 	
 	<!-- 4、配置mybatis多套运行环境:开发环境、发布环境等  -->
@@ -38,12 +33,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		</environment>
 	</environments>	
 	
-	<!-- TODO -->
 	<!-- 5、将mapper文件引入配置文件中 -->
 	<mappers>
 		<!-- 两种方式皆可<mapper class="com.yscxsss.category.dao.CategoryMapper"/> -->
-		<mapper	resource="com/yscxsss/category/dao/CategoryMapper.xml"/>
-		
+		<mapper	resource="com/easybuy/dao/category/CategoryMapper.xml"/>
+		<mapper	resource="com/easybuy/dao/user/UserMapper.xml"/>
+		<mapper	resource="com/easybuy/dao/news/NewsMapper.xml"/>
+		<mapper	resource="com/easybuy/dao/product/ProductMapper.xml"/>
+		<mapper	resource="com/easybuy/dao/order/OrderMapper.xml"/>		
 	</mappers>
 </configuration>
 
