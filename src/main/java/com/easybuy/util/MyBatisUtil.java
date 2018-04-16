@@ -28,7 +28,9 @@ public class MyBatisUtil {
 	public static SqlSession createSqlSession() {
 		SqlSession sqlSession=threadLocal.get();
 		if(sqlSession==null){
-			sqlSession=factory.openSession();
+			//手动提交事务管理，sqlSession=factory.openSession(false);
+			//默认为true,就是自动提交事务，更多地采手动提交：比较安全
+			sqlSession=factory.openSession(false);
 			threadLocal.set(sqlSession);
 		}		
 		return sqlSession;
