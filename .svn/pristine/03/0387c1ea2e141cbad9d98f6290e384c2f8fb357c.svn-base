@@ -85,7 +85,7 @@ DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键，自动编号',
   `name` varchar(20) NOT NULL,
-  `describe` varchar(100) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
   `price` float(10,2) NOT NULL,
   `stock` int(10) NOT NULL,
   `categoryLevel1` int(10) NOT NULL,
