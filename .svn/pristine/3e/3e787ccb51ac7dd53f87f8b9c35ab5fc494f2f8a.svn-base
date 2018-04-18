@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 注意：标签顺序不能错乱，按顺序写 -->
+	<!-- 1、引入database.properties文件 -->
+	<properties resource="database.properties"></properties>
+	
+	<!-- 2、设置log4j为项目使用的 -->
+	<settings>
+		<setting name="logImpl" value="LOG4J"/>
+	</settings>
+	
+	<!-- 3、为复杂类名设置别名 -->
+	<typeAliases>
+		<package name="com.easybuy.entity"/>
+	</typeAliases>
+	
+	<!-- 4、配置mybatis多套运行环境:开发环境、发布环境等  -->
+	<environments default="development">
+		<environment id="development">
+			<!-- 4.1配置事务管理，采用JDBC事务管理 -->
+			<transactionManager type="JDBC"></transactionManager>
+			<!-- 4.2配置数据源，POOLED:mybatis自带的数据源，JNDI：基于Tomcat的数据源 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>	
+	
+	<!-- 5、将mapper文件引入配置文件中 -->
+	<mappers>
+		<!-- 两种方式皆可<mapper class="com.yscxsss.category.dao.CategoryMapper"/> -->
+		<mapper	resource="com/easybuy/dao/category/CategoryMapper.xml"/>
+		<mapper	resource="com/easybuy/dao/user/UserMapper.xml"/>
+		<mapper	resource="com/easybuy/dao/news/NewsMapper.xml"/>
+		<mapper	resource="com/easybuy/dao/product/ProductMapper.xml"/>
+		<mapper	resource="com/easybuy/dao/order/OrderMapper.xml"/>		
+	</mappers>
+</configuration>
+
+

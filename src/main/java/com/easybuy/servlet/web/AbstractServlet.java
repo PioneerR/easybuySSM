@@ -29,6 +29,10 @@ public abstract class AbstractServlet extends HttpServlet {
 		Method method=null;
 		Object obj=null;
 		
+		if(action!=null){
+			
+		}
+		
 		
 		
 		
