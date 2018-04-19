@@ -164,14 +164,14 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
       <version>7.0</version>
       <scope>provided</scope>
     </dependency>
-    
     <!-- MD5 -->
-    <!-- http://mvnrepository.com/artifact/commons-codec/commons-codec/1.6 -->
+    <!-- http://mvnrepository.com/artifact/commons-codec/commons-codec/1.4 -->
     <dependency>
-	   <groupId>commons-codec</groupId>
-	   <artifactId>commons-codec</artifactId>
-	   <version>1.6</version>
-    </dependency>    
+    <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>1.6</version>
+    </dependency>
+    
   </dependencies>
   
   <build>
@@ -188,7 +188,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           <directory>src/main/resources</directory>          
           <includes>
               <include>log4j.properties</include>
-              <include>applicationContext.xml</include>
           </includes>
       </resource>
     </resources>
