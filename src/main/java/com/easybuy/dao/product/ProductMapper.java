@@ -2,7 +2,6 @@ package com.easybuy.dao.product;
 
 import com.easybuy.entity.Product;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -15,7 +14,7 @@ public interface ProductMapper {
 	 * @param 
 	 * @return
 	 */
-	public int addProduct(@Param("product")Product p);
+	public int addProduct(Product p);
 
 	/**
 	 * 通过产品id删除产品信息
@@ -35,7 +34,7 @@ public interface ProductMapper {
 	 * 查询所有的产品信息
 	 * @return
 	 */
-	public List<Product> getAllProduct();
+	public List<Product> getListProductByCategoryId(@Param("categoryId")Integer categoryId);
 
 	/**
 	 * 根据产品id查询产品信息
@@ -43,10 +42,6 @@ public interface ProductMapper {
 	 * @return
 	 */
 	public Product getProductById(@Param("id")Integer id);
-	/**
-	 * 通过动态传参查询产品信息
-	 * @param product
-	 * @return
-	 */
-	public List<Product> getProductListByInfo(Product product);
+	
+
 }

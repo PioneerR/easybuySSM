@@ -5,29 +5,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.easybuy.dao.category.CategoryMapper">
 	<!-- 1、增加  --> 
-	<!-- FIXME 以下代码，全部重构 -->
-	<!-- <insert id="addCategory" parameterType="Category" >	
-		insert into category (<include refid="key" />) values (<include refid="value" />)
+	<insert id="addCategory" parameterType="Category">	
+		<!-- insert into category (<include refid="key" />) values (<include refid="value" />) -->
+		insert into category (name,parentId,level) values (#{name},#{parentId},#{level})
 	</insert>
+	<!-- 
 	<sql id="value">
 		<trim suffixOverrides=",">
+			<if test="name!=null">#{name},</if>
 			<if test="parentId!=null">#{parentId},</if>
-			<if test="categoryName!=null">#{categoryName},</if>
-			<if test="describe!=null">#{describe},</if>
-			<if test="categoryNo!=null">#{categoryNo},</if>
 			<if test="level!=null">#{level},</if>
-			<if test="0!=null">0,</if>
 		</trim>
 	</sql>
 		
 	<sql id="key">
 		<trim suffixOverrides=",">
-			<if test="parentId!=null">pid,</if>
-			<if test="categoryName!=null">name,</if>
-			<if test="describe!=null">descr,</if>
-			<if test="categoryNo!=null">cno,</if>
-			<if test="level!=null">grade,</if>
-			<if test="0!=null">cid,</if>
+			<if test="parentId!=null">parentId,</if>
+			<if test="name!=null">name,</if>
+			<if test="level!=null">level,</if>
 		</trim>
 	</sql> -->
 	
@@ -35,8 +30,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteCategoryById">
 		delete from category 
 		<where>
-			<if test="categoryId!=null">
-				and id=#{categoryId}
+			<if test="id!=null">
+				and id=#{id}
 			</if>
 		</where>
 	</delete>	
@@ -46,9 +41,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update category
 		<set>
 			<if test="name!=null and name!=''">name=#{name},</if>
-			<if test="describe!=null and describe!=''">describe=#{describe},</if>
+			<if test="parentId!=null and parentId!=''">parentId=#{parentId},</if>
+			<if test="level!=null and level!=''">level=#{level},</if>
 		</set>
-		where id=#{categoryId}
+		where id=#{id}
 	</update>
 	
 	<!-- 4、查询 -->

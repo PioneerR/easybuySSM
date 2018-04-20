@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<Product> getAllProduct() {
+	public List<Product> getListProductByCategoryId(int categoryId) {
 		
 		
 		

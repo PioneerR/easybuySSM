@@ -19,7 +19,7 @@ public interface CategoryMapper {
 	 * @param CategoryId
 	 * @return
 	 */
-	public int deleteCategoryById(@Param("categoryId")Integer categoryId);
+	public int deleteCategoryById(@Param("id")Integer id);
 	
 	/**
 	 * 

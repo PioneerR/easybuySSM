@@ -31,7 +31,7 @@ public interface ProductService {
 	 * 查询
 	 * @return
 	 */
-	public List<Product> getAllProduct();
+	public List<Product> getListProductByCategoryId(int categoryId);
 
 	/**
 	 * 根据id查询
