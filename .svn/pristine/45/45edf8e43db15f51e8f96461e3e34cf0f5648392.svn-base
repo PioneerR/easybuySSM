@@ -17,16 +17,18 @@ function jianUpdate(jian){
 	}
 }    
 
+function getPCount(obj){
+	return obj.parent().find(".car_ipt").val();
+}
 
-
-
-function addUpdate1(jia){		
+function addUpdate1(jia){
 	var c = jia.parent().find(".car_ipt").val();
 	c=parseInt(c)+1;	
 	jia.parent().find(".car_ipt").val(c);
+	return c;
 }
 
-function jianUpdate1(jian){    
+function jianUpdate1(jian){
 	var c = jian.parent().find(".car_ipt").val();
 	if(c==1){    
 		c=1;    
@@ -34,4 +36,5 @@ function jianUpdate1(jian){
 		c=parseInt(c)-1;    
 		jian.parent().find(".car_ipt").val(c);
 	}
-}    
+	return c;
+}

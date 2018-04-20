@@ -6,7 +6,7 @@ package com.easybuy.util;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-public class Util_MD5 {
+public class UtilMD5 {
 		
 		/**
 		 * md5加密
