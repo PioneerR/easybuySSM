@@ -57,16 +57,5 @@ public class CategoryServlet extends AbstractServlet {
 		return "/backend/categoryList";
 	}
 	
-	public String addCategory(HttpServletRequest request,
-			HttpServletResponse response){
-		//TODO
-		Category c=new Category();
-		String levelStr=request.getParameter("level");
-		c.setLevel(Integer.parseInt(levelStr));
-		
-		return "";
-	}
-	
-	
 
 }

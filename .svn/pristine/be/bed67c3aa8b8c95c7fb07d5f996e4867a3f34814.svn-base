@@ -48,8 +48,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<!-- 4、查询 -->
-	<select id="getListCategoryByLevel" resultMap="category">
-		select * from category,
+	<select id="getListCategoryByLevel" resultType="Category">
+		select * from category
 		<where>
 			<if test="level !=null">
 				and	level = #{level}
@@ -57,12 +57,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 		limit #{startIndex},#{pageSize}
 	</select>
-	<resultMap type="Category" id="category">
-		<id property="id" column="id"/>
-		<result property="" column=""/>
-	
-	</resultMap>
-	
 	<select id="getCategoryById" resultType="Category">
 		select * from category 
 		<where>

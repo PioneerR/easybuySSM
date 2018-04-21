@@ -16,7 +16,7 @@
     <div class="m_right" id="content">
       <div class="mem_tit">分类列表</div>
       <p align="right">
-        <a href="javascript:void(0);" onclick="toAddProductCategory();" class="add_b">添加分类</a>
+        <a href="javascript:void(0);" onclick="addCategory();" class="add_b">添加分类</a>
         <br>
       </p>
       <br>
@@ -29,38 +29,53 @@
           <td width="25%">父级分类</td>
           <td width="25%" >操作</td>
         </tr>
-        <c:forEach items="${categoryList}" var="temp">
+        <c:forEach items="${categoryList}" var="category">
           <tr>
-            <td width="5%"><input type="radio" value="${temp.id}" name="select" onclick="toUpdateProductCategoryList(this);"/></td>
-            <td>${temp.name}</td>
+            <td width="5%"><input type="radio" value="${category.id}" name="select" onclick="toUpdateProductCategoryList(this);"/></td>
+            <td>${category.name}</td>
             <td>
             <c:choose>
-               <c:when test="${temp.type==1}">一级分类</c:when>
-               <c:when test="${temp.type==2}">二级分类</c:when>
-               <c:when test="${temp.type==3}">三级分类</c:when>
+               <c:when test="${category.level==1}">一级分类</c:when>
+               <c:when test="${category.level==2}">二级分类</c:when>
+               <c:when test="${category.level==3}">三级分类</c:when>
             </c:choose>
             </td>
-            <%-- <td>
-            <c:if test="${empty temp.parentName}">
+            <td>
+            <c:if test="${empty category.parentName}">
             	无
             </c:if>
-            <c:if test="${not empty temp.parentName}">
-            	${temp.parentName}
+            <c:if test="${not empty category.parentName}">
+            	${category.parentName}
             </c:if>
-            </td> --%>
-            <td><a href="javascript:void(0);" onclick="deleteProductCategory(${temp.id},${temp.type});">删除</a></td>
+            </td> 
+            <td><a href="javascript:void(0);" onclick="deleteProductCategory(${category.id},${category.level});">删除</a></td>
           </tr>
         </c:forEach>
         </tbody>
       </table>
       <%@ include file="/common/pre/pagerBar.jsp" %>
-      <div id="addProductCategory">
+      <div id="addCategory">
 
       </div>
     </div>
   </div>
   <%@ include file="/common/pre/footer.jsp" %>
 </div>
+<script>
+	function addCategory() {
+	    $.ajax({
+	        url: "/backend/categoryServlet",
+	        method: "post",
+	        data: {
+	            action: "addCategory"
+	        },
+	        success: function (jsonStr) {
+	            $("#addCategory").html(jsonStr);
+	            //$("input[name=select]").removeAttr("checked");
+	        }
+	    });
+	}
+</script>
 </body>
 </html>
 

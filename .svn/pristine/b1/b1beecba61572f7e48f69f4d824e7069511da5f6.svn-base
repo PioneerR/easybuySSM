@@ -2,7 +2,6 @@ package com.easybuy.dao.category;
 
 import com.easybuy.entity.Category;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -33,8 +32,7 @@ public interface CategoryMapper {
 	 * 查询所有类别
 	 * @return
 	 */
-	public List<Category> getListCategoryByLevel(@Param("level")Integer level,
-			@Param("startIndex")Integer startIndex,@Param("pageSize")Integer pageSize);
+	public List<Category> getListCategoryByLevel(@Param("level")Integer level);
 	
 	/**
 	 * 根据类别id查询类别
@@ -42,7 +40,5 @@ public interface CategoryMapper {
 	 * @return
 	 */
 	public Category getCategoryById(@Param("id")Integer id);
-	
-	public int getTotalCount() throws SQLException;
 	
 }

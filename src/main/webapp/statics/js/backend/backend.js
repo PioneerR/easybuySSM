@@ -1,5 +1,5 @@
 //分类添加
-function toAddProductCategory() {
+function addCategory() {
     $.ajax({
         url: contextPath + "/admin/productCategory",
         method: "post",
@@ -12,6 +12,7 @@ function toAddProductCategory() {
         }
     });
 }
+
 function addProductCategory() {
     var productCategoryLevel1 = $("#productCategoryLevel1").val();
     var productCategoryLevel2 = $("#productCategoryLevel2").val();

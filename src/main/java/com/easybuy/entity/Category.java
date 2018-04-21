@@ -5,7 +5,9 @@ public class Category {
 	private int id;
 	private String name;
 	private int parentId;
-	private int type;
+	private int level;
+	private String parentName;
+	
 	
 	public int getId() {
 		return id;
@@ -25,11 +27,17 @@ public class Category {
 	public void setParentId(int parentId) {
 		this.parentId = parentId;
 	}
-	public int getType() {
-		return type;
+	public int getLevel() {
+		return level;
 	}
-	public void setType(int type) {
-		this.type = type;
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	public String getParentName() {
+		return parentName;
+	}
+	public void setParentName(String parentName) {
+		this.parentName = parentName;
 	}
 	
 }
