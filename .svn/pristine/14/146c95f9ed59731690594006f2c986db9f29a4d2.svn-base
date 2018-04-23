@@ -33,7 +33,7 @@
         <c:forEach items="${categoryList}" var="category">
           <tr>
             <td width="5%"><input type="radio" value="${category.id}" name="select" 
-            	onclick="updateCategoryList(this);"/></td>
+            	onclick="toUpdateProductCategoryList(this);"/></td>
             <td>${category.name}</td>
             <td>
             <c:choose>

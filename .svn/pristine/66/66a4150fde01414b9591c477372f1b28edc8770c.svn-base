@@ -137,62 +137,8 @@ public class CategoryServlet extends AbstractServlet {
 		return result;
 	}
 	
-	//点击瞬间，出现修改框
-	public String updateCategory(HttpServletRequest request,HttpServletResponse response){
-		
-		String id=request.getParameter("id");
-		Category c=null;
-		if(id!=null){
-			c=categoryService.getCategoryById(Integer.parseInt(id));
-		}
-		request.setAttribute("category", c);		
-		
-		List<Category> list1=null;
-        List<Category> list2=null;
-        List<Category> list3=null;
-        if(c.getLevel()>=1){
-        	list1=categoryService.getListCategoryByLevel(1);
-        }
-        if(c.getLevel()>=2){
-        	list2=categoryService.getListCategoryByLevel(2);
-        	request.setAttribute("parentCategory", categoryService.getCategoryById(c.getParentId()));
-        }
-        if(c.getLevel()>=3){
-        	list3=categoryService.getListCategoryByLevel(3);
-        }
-		request.setAttribute("categoryList1", list1);
-		request.setAttribute("categoryList2", list2);
-		request.setAttribute("categoryList3", list3);
-		
-		return "/backend/addCategory";
-	}
 	
-	public ReturnResult modifyCategory(HttpServletRequest request,HttpServletResponse response){
-		ReturnResult result=new ReturnResult();
-		
-		Integer parentId=0;
-        String id=request.getParameter("id");
-        String categoryLevel1=request.getParameter("categoryLevel1");
-        String categoryLevel2=request.getParameter("categoryLevel2");
-        
-        String name=request.getParameter("name");
-        String level=request.getParameter("level");
-        if(level.equals("1")){
-            parentId =0;
-        }else if(level.equals("2")){
-            parentId =Integer.parseInt(categoryLevel1);
-        }else{
-            parentId =Integer.parseInt(categoryLevel2);
-        }
-        
-        Category c  =new Category();
-        c.setId(Integer.parseInt(id));
-        c.setParentId(parentId);
-        c.setName(name);
-        c.setLevel(Integer.parseInt(level));
-        categoryService.updateCategory(c);
-        result.returnSuccess();
-		return result;
-	}
+	
+	
 
 }

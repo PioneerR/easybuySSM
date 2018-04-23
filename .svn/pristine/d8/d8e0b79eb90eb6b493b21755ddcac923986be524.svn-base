@@ -81,7 +81,7 @@ function saveOrUpdate() {
     if (id == 0) {
         addProductCategory();
     } else {
-        modifyCategory();
+        modifyProductCategory();
     }
 }
 
@@ -184,50 +184,24 @@ function deleteCategory(id,level){
 	}
 }*/
 
-function updateCategoryList(obj) {
+
+//修改
+function toUpdateProductCategoryList(obj) {
     var id = $(obj).val();
     $.ajax({
-        url: contextPath + "/backend/categoryServlet",
+        url: contextPath + "/admin/productCategory",
         method: "post",
         data: {
-            action: "updateCategory",
+            action: "toUpdateProductCategory",
             id: id
         },
         success: function (jsonStr) {
-            $("#addCategory").html(jsonStr);
+            $("#addProductCategory").html(jsonStr);
         }
     });
 }
 
-
-
-function modifyCategory() {
-    var id = $("#id").val();
-    var categoryLevel1 = $("#productCategoryLevel1").val();
-    var categoryLevel2 = $("#productCategoryLevel2").val();
-    var name = $("#name").val();
-    var level = $("#level").val();
-    $.ajax({
-        url: contextPath + "/backend/categoryServlet",
-        method: "post",
-        data: {
-            action: "modifyCategory",
-            id: id,
-            name: name,
-            level: level,
-            categoryLevel1: (categoryLevel1 == null || categoryLevel1 == "") ? 0 : categoryLevel1,
-            categoryLevel2: (categoryLevel2 == null || categoryLevel2 == "") ? 0 : categoryLevel2
-        },
-        success: function (jsonStr) {
-            var result = eval("(" + jsonStr + ")");
-            //状态判断
-            if (result.status == 1) {
-                window.location.reload();
-            }
-        }
-    });
-};
-/*function modifyProductCategory() {
+function modifyProductCategory() {
     var id = $("#id").val();
     var productCategoryLevel1 = $("#productCategoryLevel1").val();
     var productCategoryLevel2 = $("#productCategoryLevel2").val();
@@ -252,23 +226,7 @@ function modifyCategory() {
             }
         }
     });
-};*/
-
-//修改
-function toUpdateProductCategoryList(obj) {
-    var id = $(obj).val();
-    $.ajax({
-        url: contextPath + "/admin/productCategory",
-        method: "post",
-        data: {
-            action: "toUpdateProductCategory",
-            id: id
-        },
-        success: function (jsonStr) {
-            $("#addProductCategory").html(jsonStr);
-        }
-    });
-}
+};
 //选择商品分类级别
 function selectProductCategoryLevel(obj) {
     var level = $(obj).val();
