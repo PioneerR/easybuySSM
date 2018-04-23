@@ -9,11 +9,9 @@ public class Product {
 	private String describe;
 	private double price;
 	private int stock;
-
 	private int categoryLevel1Id;
 	private int categoryLevel2Id;
 	private int categoryLevel3Id;
-
 	private String fileName;
 	private int isDelete;
 	private Date createTime;
@@ -42,13 +40,14 @@ public class Product {
 	}
 	public void setPrice(double price) {
 		this.price = price;
-	}	
+	}
 	public int getStock() {
 		return stock;
 	}
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+	
 	public int getCategoryLevel1Id() {
 		return categoryLevel1Id;
 	}

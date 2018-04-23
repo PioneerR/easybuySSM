@@ -68,7 +68,7 @@ public abstract class AbstractServlet extends HttpServlet {
 				String viewName=result.toString()+".jsp";
 				request.getRequestDispatcher(viewName).forward(request, response);				
 			}else{
-				//若返回值是List或其他对象ReturnResult，通过fastJson转换成json数据，通过PrintWriter发送到前端
+				//若返回值是List或其他对象，通过fastJson转换成json数据，通过PrintWriter发送到前端
 				PrintWriterUtil.write(result, response);
 			}
 		}

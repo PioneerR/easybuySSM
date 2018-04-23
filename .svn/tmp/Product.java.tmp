@@ -9,11 +9,13 @@ public class Product {
 	private String describe;
 	private double price;
 	private int stock;
-
+<<<<<<< .mine
 	private int categoryLevel1Id;
 	private int categoryLevel2Id;
 	private int categoryLevel3Id;
-
+=======
+	private int categoryLevel;
+>>>>>>> .r26
 	private String fileName;
 	private int isDelete;
 	private Date createTime;
@@ -42,19 +44,26 @@ public class Product {
 	}
 	public void setPrice(double price) {
 		this.price = price;
-	}	
+	}
 	public int getStock() {
 		return stock;
 	}
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+<<<<<<< .mine
+	
 	public int getCategoryLevel1Id() {
 		return categoryLevel1Id;
 	}
 	public void setCategoryLevel1Id(int categoryLevel1Id) {
 		this.categoryLevel1Id = categoryLevel1Id;
+=======
+	public int getCategoryLevel() {
+		return categoryLevel;
+>>>>>>> .r26
 	}
+<<<<<<< .mine
 	public int getCategoryLevel2Id() {
 		return categoryLevel2Id;
 	}
@@ -67,6 +76,11 @@ public class Product {
 	public void setCategoryLevel3Id(int categoryLevel3Id) {
 		this.categoryLevel3Id = categoryLevel3Id;
 	}
+=======
+	public void setCategoryLevel(int categoryLevel) {
+		this.categoryLevel = categoryLevel;
+	}	
+>>>>>>> .r26
 	public String getFileName() {
 		return fileName;
 	}
