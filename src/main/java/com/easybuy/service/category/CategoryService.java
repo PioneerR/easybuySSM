@@ -2,7 +2,6 @@ package com.easybuy.service.category;
 
 import com.easybuy.entity.Category;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface CategoryService {
@@ -41,7 +40,7 @@ public interface CategoryService {
 	 */
 	public Category getCategoryById(int id);
 
-	public int getTotalCount()throws SQLException;
+	public int getTotalCount();
 
 	public List<Category> getListCategoryByLevel(int level);
 	
