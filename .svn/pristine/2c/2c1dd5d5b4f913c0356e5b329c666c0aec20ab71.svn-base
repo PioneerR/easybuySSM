@@ -28,10 +28,11 @@ public class CategoryServiceImpl implements CategoryService {
 	public boolean addCategory(Category c){
 		try {
 			int sqlNum=categoryMapper.addCategory(c);
+			int i=1/0;
 			if(sqlNum>0){
 				flag=true;
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return flag;
@@ -43,7 +44,7 @@ public class CategoryServiceImpl implements CategoryService {
 			if(sqlNum>0){
 				flag=true;
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return flag;
@@ -55,7 +56,7 @@ public class CategoryServiceImpl implements CategoryService {
 			if(sqlNum>0){
 				flag=true;
 			}
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		} 
 		return flag;
@@ -66,7 +67,7 @@ public class CategoryServiceImpl implements CategoryService {
 		Category c=null;
 		try {
 			c=categoryMapper.getCategoryById(id);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return c;
@@ -76,7 +77,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<Category> getListCategory(int startIndex,int pageSize) {
 		try {
 			list=categoryMapper.getListCategory(startIndex,pageSize);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list;
@@ -97,7 +98,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<Category> getListCategoryByLevel(int level) {
 		try {
 			list=categoryMapper.getListCategoryByLevel(level);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list;
@@ -107,7 +108,7 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<Category> getListCategoryByParentId(int parentId) {
 		try {
 			list=categoryMapper.getListCategoryByParentId(parentId);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			log.error(e);
 		}
 		return list;

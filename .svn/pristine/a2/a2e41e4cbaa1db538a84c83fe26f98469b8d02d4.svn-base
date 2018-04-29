@@ -46,6 +46,5 @@
   <import resource="order/applicationContext-public.xml"/>
   <import resource="product/applicationContext-public.xml"/>
   <import resource="category/applicationContext-public.xml"/>
-  <import resource="news/applicationContext-public.xml"/>
   
 </beans> 

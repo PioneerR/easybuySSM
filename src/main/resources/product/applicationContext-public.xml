@@ -15,5 +15,4 @@
  	<import resource="applicationContext-service.xml"/>
  	<import resource="applicationContext-mybatis.xml"/>
   
-  
 </beans> 

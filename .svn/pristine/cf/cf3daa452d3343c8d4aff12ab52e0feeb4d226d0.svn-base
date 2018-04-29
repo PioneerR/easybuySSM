@@ -11,7 +11,18 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">  
   
-  	<!-- IOC扫描service包，以便生成service实例 -->
- 	<context:component-scan base-package="com.easybuy.service.order" />
+  	<!-- 引入mapper.xml，以便将其注册到mybatis中 -->
+ 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
+  		p:dataSource-ref="dataSource"
+	  	p:configLocation="classpath:/mybatis-config.xml"
+	  	p:mapperLocations="classpath:com/easybuy/dao/news/*.xml">
+  	</bean>
+  	
+  	<!-- MapperScanner扫描mapper.xml所在的包，便于生成MapperImpl实现类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"   
+  		p:sqlSessionFactoryBeanName="sqlSessionFactory"
+  		p:basePackage="com.easybuy.dao.news">
+    </bean>
+  
   
 </beans> 
