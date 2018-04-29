@@ -34,16 +34,18 @@ public class CategoryServlet extends AbstractServlet {
 		return CategoryServlet.class;
 	}
 
-	public String index(HttpServletRequest request,
+	public String getListCategory(HttpServletRequest request,
 				HttpServletResponse response) throws Exception{
 	
 		//分页功能
 		int totalCount=categoryService.getTotalCount();
+		//System.out.println("totalCount:"+totalCount);
 		//创建Page对象的时候，totalCount\totalPageCount都初始化成功
 		Page page=new Page(totalCount);
 		String currentPageNoStr = request.getParameter("currentPageNo");
+		//System.out.println(page.getCurrentPageNo());
 		String pageSizeStr=request.getParameter("pageSize");
-		page.setUrl("backend/categoryServlet?action=index");
+		page.setUrl("backend/categoryServlet?action=getListCategory");
 		if(pageSizeStr!=null){
 			int pageSize=Integer.parseInt(pageSizeStr);
 			page.setPageSize(pageSize);

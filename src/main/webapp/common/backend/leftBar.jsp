@@ -21,16 +21,16 @@
             </c:if>
         </ul>
     </div>
-    <c:if test="${sessionScope.loginUser.type==1}">
+    <%-- TODO 后期打开 <c:if test="${sessionScope.loginUser.type==1}"> --%>
     <div class="left_m">
         <div class="left_m_t t_bg2">商品管理</div>
         <ul>
-            <li><a href="${ctx}/admin/productCategory?action=index" <c:if test="${menu==4}"> class="now" </c:if>>分类管理</a></li>
-            <li><a href="${ctx}/admin/product?action=index"  <c:if test="${menu==5}"> class="now" </c:if>>商品管理</a></li>
-            <li><a href="${ctx}/admin/product?action=toAddProduct" <c:if test="${menu==6}"> class="now" </c:if>>商品上架</a></li>
+            <li><a href="${ctx}/backend/categoryServlet?action=index" <c:if test="${menu==4}"> class="now" </c:if>>分类管理</a></li>
+            <li><a href="${ctx}/backend/productServlet?action=index"  <c:if test="${menu==5}"> class="now" </c:if>>商品管理</a></li>
+            <li><a href="${ctx}/backend/productServlet?action=addProduct" <c:if test="${menu==6}"> class="now" </c:if>>商品上架</a></li>
         </ul>
     </div>
-    </c:if>
+    <%-- </c:if> --%>
     <div class="left_m">
         <div class="left_m_t t_bg2">资讯中心</div>
         <ul>

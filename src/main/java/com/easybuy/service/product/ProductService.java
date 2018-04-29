@@ -28,19 +28,16 @@ public interface ProductService {
 	public boolean updateProduct(Product p);
 
 	/**
-	 * 查询
-	 * @return
-	 */
-	public List<Product> getListProductByCategoryId(int categoryId);
-
-	/**
 	 * 根据id查询
 	 * @param 
 	 * @return
 	 */
-	public Product getProductById(int id);
+	public Product getProductById(Integer id);
 	
-	public int getProductCountByCategoryId(int categoryId);
+	public int getProductCountByCategoryId(Integer categoryId);
 
+	public int getTotalCount();
+	
+	public List<Product> getListProductByCategoryLevelId(Integer categoryLevelId,Integer startIndex,Integer pageSize);
 
 }
