@@ -26,15 +26,15 @@
             </div>
             
             <br>
-            <form action="${ctx}/admin/product?action=addProduct" method="post" enctype="multipart/form-data" id="productAdd" onsubmit="return checkProduct();">
+            <form action="${ctx}/backend/productServlet?action=addProducted" method="post" enctype="multipart/form-data" id="productAdd" onsubmit="return checkProduct();">
             <table border="0" class="add_tab" style="width:930px;" cellspacing="0" cellpadding="0">
                 <tr>
                     <td width="135" align="right">一级分类</td>
                     <td colspan="3" style="font-family:'宋体';">
                         <select name="categoryLevel1Id" style="background-color:#f6f6f6;" id="productCategoryLevel1"
-                                onchange="queryProductCategoryList(this,'productCategoryLevel2');">
+                                onchange="getListCategoryByParentId(this,'productCategoryLevel2');">                             
                             <option value="" selected="selected">请选择...</option>
-                            <c:forEach items="${productCategoryList1}" var="temp">
+                            <c:forEach items="${categoryList1}" var="temp">
                                 <option value="${temp.id}"
                                         <c:if test="${product.categoryLevel1Id==temp.id}">selected="selected"</c:if> >${temp.name}</option>
                             </c:forEach>
@@ -46,9 +46,9 @@
                     <td>
                         <select name="categoryLevel2Id" style="background-color:#f6f6f6;"
                                 id="productCategoryLevel2"
-                                onchange="queryProductCategoryList(this,'productCategoryLevel3');">
+                                onchange="getListCategoryByParentId(this,'productCategoryLevel3');">
                             <option value="0" selected="selected">请选择...</option>
-                            <c:forEach items="${productCategoryList2}" var="temp">
+                            <c:forEach items="${categoryList2}" var="temp">
                                 <option value="${temp.id}"
                                         <c:if test="${product.categoryLevel2Id==temp.id}">selected="selected"</c:if> >${temp.name}</option>
                             </c:forEach>
@@ -61,7 +61,7 @@
                         <select name="categoryLevel3Id" style="background-color:#f6f6f6;"
                                 id="productCategoryLevel3">
                             <option value="0" selected="selected">请选择...</option>
-                            <c:forEach items="${productCategoryList3}" var="temp">
+                            <c:forEach items="${categoryList3}" var="temp">
                                 <option value="${temp.id}"
                                         <c:if test="${product.categoryLevel3Id==temp.id}">selected="selected"</c:if> >${temp.name}</option>
                             </c:forEach>
@@ -99,7 +99,7 @@
                 <tr>
                     <td width="135" align="right">描述</td>
                     <td>
-                        <textarea name="description">${product.description}</textarea>
+                        <textarea name="describe">${product.describe}</textarea>
                     </td>
                 </tr>
                 <tr>

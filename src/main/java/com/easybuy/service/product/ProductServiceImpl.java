@@ -25,10 +25,15 @@ public class ProductServiceImpl implements ProductService {
 	
 	@Override
 	public boolean addProduct(Product p) {
-		
-		
-		
-		return false;
+		try {
+			int num=productMapper.addProduct(p);
+			if(num>0){
+				flag=true;
+			}
+		} catch (SQLException e) {
+			log.error(e);
+		}
+		return flag;
 	}
 
 	@Override

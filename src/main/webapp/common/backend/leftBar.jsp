@@ -34,7 +34,7 @@
     <div class="left_m">
         <div class="left_m_t t_bg2">资讯中心</div>
         <ul>
-            <li><a href="${ctx}/admin/news?action=queryNewsList"  <c:if test="${menu==7}"> class="now" </c:if>>资讯列表</a></li>
+            <li><a href="${ctx}/backend/newsServlet?action=queryNewsList"  <c:if test="${menu==7}"> class="now" </c:if>>资讯列表</a></li>
         </ul>
     </div>
 </div>

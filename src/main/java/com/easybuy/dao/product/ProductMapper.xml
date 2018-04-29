@@ -124,9 +124,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 增加产品信息 -->
 	<insert id="addProduct" >
 		insert into product
-		(`name`,`describe`,price,stock,categoryLevel1,categoryLevel2,categoryLevel3,fileName,isDelete,createTime)
-		values(#{product.name},#{product.describe},#{product.price},#{product.stock},#{product.categoryLevel1},
-		#{product.categoryLevel2},#{product.categoryLevel3},#{product.fileName},#{product.isDelete},#{product.createTime})
+		(`name`,`describe`,price,stock,categoryLevel1Id,categoryLevel2Id,categoryLevel3Id,fileName,isDelete)
+		values(#{product.name},#{product.describe},#{product.price},#{product.stock},#{product.categoryLevel1Id},
+		#{product.categoryLevel2Id},#{product.categoryLevel3Id},#{product.fileName},#{product.isDelete})
 	</insert>
 	
 	
