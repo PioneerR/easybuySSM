@@ -199,19 +199,18 @@ public class ProductServlet extends AbstractServlet  {
 			product.setFileName(fileName);
 			//0表示文件上传成功，即没有删除
 			product.setIsDelete(0);
-			//将产品添加到数据库中
-			productService.addProduct(product);
-			
-			/*Integer id = product.getId();
+			//将产品添加到数据库中			
+			Integer id = product.getId();
 			if (EmptyUtils.isEmpty(id) || id.equals("0")) {
 				productService.addProduct(product);
             } else {
+            	//如果id存在，那么更新信息
             	if(EmptyUtils.isEmpty(product.getFileName())|| product.getFileName().length()<5){
             		Product productDemo=productService.getProductById(id);
             		product.setFileName(productDemo.getFileName());
             	}
             	productService.updateProduct(product);
-            }*/
+            }
 		}catch (Exception e){
 			e.printStackTrace();
 		}
@@ -248,6 +247,25 @@ public class ProductServlet extends AbstractServlet  {
 		result.returnSuccess();
 		return result;
 	}
+	
+	public String updateProduct(HttpServletRequest request,
+			HttpServletResponse response) throws Exception{
+		String id=request.getParameter("id");
+		Product product=productService.getProductById(Integer.parseInt(id));		
+		request.setAttribute("menu",6);
+		
+		//查询分类		
+		List<Category> list1=categoryService.getListCategoryByLevel(1);
+		List<Category> list2=categoryService.getListCategoryByLevel(2);
+		List<Category> list3=categoryService.getListCategoryByLevel(3);
+		//存储分类列表
+		request.setAttribute("categoryList1", list1);
+		request.setAttribute("categoryList2", list2);
+		request.setAttribute("categoryList3", list3);
+		request.setAttribute("product", product);
+		return "/backend/product/addProduct";
+	}
+	
 	
 
 }

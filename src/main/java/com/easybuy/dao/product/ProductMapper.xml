@@ -9,40 +9,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	<sql id="key">
 		<trim suffixOverrides=",">
-			<if test="p.name!=null and p.name!=''">name</if>
-			<if test="p.describe!=null and p.describe!=''">describe</if>
-			<if test="p.price!=null and p.price!=''">price</if>
-			<if test="p.stock!=null and p.stock!=''">stock</if>
-			<if test="p.categoryLevel1Id!=null and p.categoryLevel1Id!=''">
-				categoryLevel1Id
-			</if>
-			<if test="p.categoryLevel2Id!=null and p.categoryLevel2Id!=''">
-				categoryLevel2Id
-			</if>
-			<if test="p.categoryLevel3Id!=null and p.categoryLevel3Id!=''">
-				categoryLevel3Id
-			</if>
-			<if test="p.fileName!=null and p.fileName!=''">fileName</if>
-			<if test="p.isDelete!=null and p.isDelete!=''">isDelete</if>
+			<if test="p.name!=null and p.name!=''">`name`,</if>
+			<if test="p.describe!=null and p.describe!=''">`describe`,</if>
+			<if test="p.price!=null and p.price!=''">`price`,</if>
+			<if test="p.stock!=null and p.stock!=''">`stock`,</if>
+			<if test="p.categoryLevel1Id!=null and p.categoryLevel1Id!=''">`categoryLevel1Id`,</if>
+			<if test="p.categoryLevel2Id!=null and p.categoryLevel2Id!=''">`categoryLevel2Id`,</if>
+			<if test="p.categoryLevel3Id!=null and p.categoryLevel3Id!=''">`categoryLevel3Id`,</if>
+			<if test="p.fileName!=null and p.fileName!=''">`fileName`,</if>
+			<if test="p.isDelete!=null and p.isDelete!=''">`isDelete`,</if>
 		</trim>
 	</sql>
 	<sql id="value">
 		<trim suffixOverrides=",">
-			<if test="p.name!=null and p.name!=''">#{p.name}</if>
-			<if test="p.describe!=null and p.describe!=''">#{p.describe}</if>
-			<if test="p.price!=null and p.price!=''">#{p.price}</if>
-			<if test="p.stock!=null and p.stock!=''">#{p.stock}</if>
-			<if test="p.categoryLevel1Id!=null and p.categoryLevel1Id!=''">
-				#{p.categoryLevel1Id}
-			</if>
-			<if test="p.categoryLevel2Id!=null and p.categoryLevel2Id!=''">
-				#{p.categoryLevel2Id}
-			</if>
-			<if test="p.categoryLevel3Id!=null and p.categoryLevel3Id!=''">
-				#{p.categoryLevel3Id}
-			</if>
-			<if test="p.fileName!=null and p.fileName!=''">#{p.fileName}</if>
-			<if test="p.isDelete!=null and p.isDelete!=''">#{p.isDelete}</if>
+			<if test="p.name!=null and p.name!=''">#{p.name},</if>
+			<if test="p.describe!=null and p.describe!=''">#{p.describe},</if>
+			<if test="p.price!=null and p.price!=''">#{p.price},</if>
+			<if test="p.stock!=null and p.stock!=''">#{p.stock},</if>
+			<if test="p.categoryLevel1Id!=null and p.categoryLevel1Id!=''">#{p.categoryLevel1Id},</if>
+			<if test="p.categoryLevel2Id!=null and p.categoryLevel2Id!=''">#{p.categoryLevel2Id},</if>
+			<if test="p.categoryLevel3Id!=null and p.categoryLevel3Id!=''">#{p.categoryLevel3Id},</if>
+			<if test="p.fileName!=null and p.fileName!=''">#{p.fileName},</if>
+			<if test="p.isDelete!=null and p.isDelete!=''">#{p.isDelete},</if>
 		</trim>
 	</sql>
 	
@@ -55,21 +43,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateProduct">
 		update product 
 		<set>
-			<if test="p.name!=null and p.name!=''">name=#{p.name},</if>
-			<if test="p.describe!=null and p.describe!=''">describe=#{p.describe},</if>
-			<if test="p.price!=null and p.price!=''">price=#{p.price},</if>
-			<if test="p.stock!=null and p.stock!=''">stock=#{p.stock},</if>
-			<if test="p.categoryLevel1Id!=null and p.categoryLevel1Id!=''">
-				categoryLevel1Id=#{p.categoryLevel1Id},
-			</if>
-			<if test="p.categoryLevel2Id!=null and p.categoryLevel2Id!=''">
-				categoryLevel2Id=#{p.categoryLevel2Id},
-			</if>
-			<if test="p.categoryLevel3Id!=null and p.categoryLevel3Id!=''">
-				categoryLevel3Id=#{p.categoryLevel3Id},
-			</if>
-			<if test="p.fileName!=null and p.fileName!=''">fileName=#{p.fileName},</if>
-			<if test="p.isDelete!=null and p.isDelete!=''">isDelete=#{p.isDelete},</if>
+			<if test="p.name!=null and p.name!=''">`name`=#{p.name},</if>
+			<if test="p.describe!=null and p.describe!=''">`describe`=#{p.describe},</if>
+			<if test="p.price!=null and p.price!=''">`price`=#{p.price},</if>
+			<if test="p.stock!=null and p.stock!=''">`stock`=#{p.stock},</if>
+			<if test="p.categoryLevel1Id!=null and p.categoryLevel1Id!=''">`categoryLevel1Id`=#{p.categoryLevel1Id},</if>
+			<if test="p.categoryLevel2Id!=null and p.categoryLevel2Id!=''">`categoryLevel2Id`=#{p.categoryLevel2Id},</if>
+			<if test="p.categoryLevel3Id!=null and p.categoryLevel3Id!=''">`categoryLevel3Id`=#{p.categoryLevel3Id},</if>
+			<if test="p.fileName!=null and p.fileName!=''">`fileName`=#{p.fileName},</if>
+			<if test="p.isDelete!=null and p.isDelete!=''">`isDelete`=#{p.isDelete},</if>
 		</set>
 			where id =#{p.id}
 	</update>

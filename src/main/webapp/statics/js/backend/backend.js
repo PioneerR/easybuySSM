@@ -294,8 +294,6 @@ function deleteProductById(id) {
 	}
 }*/
 
-
-
 //修改
 function toUpdateProductCategoryList(obj) {
     var id = $(obj).val();
@@ -311,6 +309,7 @@ function toUpdateProductCategoryList(obj) {
         }
     });
 }
+
 //选择商品分类级别
 function selectProductCategoryLevel(obj) {
     var level = $(obj).val();

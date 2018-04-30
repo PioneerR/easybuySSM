@@ -35,7 +35,7 @@
             </td>
             <td>${temp.stock}</td>
             <td>${temp.price}</td>
-            <td><a href="${ctx}/admin/product?action=toUpdateProduct&id=${temp.id}">修改</a></td>
+            <td><a href="${ctx}/backend/productServlet?action=updateProduct&id=${temp.id}">修改</a></td>
             <td><a href="javascript:void(0);" onclick="deleteProductById('${temp.id}');">删除</a></td>
           </tr>
         </c:forEach>
