@@ -200,8 +200,8 @@ public class ProductServlet extends AbstractServlet  {
 			//0表示文件上传成功，即没有删除
 			product.setIsDelete(0);
 			//将产品添加到数据库中			
-			int id = product.getId();
-			if (id==0) {
+			Integer id = product.getId();
+			if (EmptyUtils.isEmpty(id) || id.equals("0")) {
 				productService.addProduct(product);
             } else {
             	//如果id存在，那么更新信息

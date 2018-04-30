@@ -60,7 +60,7 @@
         <ul class="menu_r">
             <li><a href="${ctx}/home?action=index">首页</a></li>
             <c:forEach items="${categoryList1}" var="temp">
-                <li><a href="${ctx}/pre/productServlet?action=getListProductByCategoryLevelId&categoryLevelId=${temp.id}">${temp.name}</a></li>
+                <li><a href="${ctx}/pre/productServlet?action=getListProductByCategoryLevelId&level=1&category=${temp.id}">${temp.name}</a></li>
             </c:forEach>
         </ul>
         <div class="m_ad">中秋送好礼！</div>

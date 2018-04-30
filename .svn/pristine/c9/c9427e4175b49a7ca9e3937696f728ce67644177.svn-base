@@ -81,7 +81,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from product
 		<where>
 			<if test="categoryLevelId!=null">
-				and `categoryLevel1Id`=#{categoryLevelId} or `categoryLevel2Id`=#{categoryLevelId} or `categoryLevel3Id`=#{categoryLevelId}
+				and categoryLevel1Id=#{categoryLevelId} or categoryLevel2Id=#{categoryLevelId} categoryLevel3Id=#{categoryLevelId}
 			</if>
 		</where>
 		limit #{startIndex},#{pageSize}

@@ -1,16 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="com.easybuy.entity.Category"%>
-<%@ page import="java.util.List"%>
-<%@ page import="com.easybuy.util.EmptyUtils"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
-<%
-	List<Category> list1=(ArrayList)request.getAttribute("categoryList1");
-	if(EmptyUtils.isEmpty(list1)){
-		response.sendRedirect(request.getContextPath()+"/home?action=index");
-	}
-%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -58,9 +47,9 @@
             </div>
         </div>
         <ul class="menu_r">
-            <li><a href="${ctx}/home?action=index">首页</a></li>
-            <c:forEach items="${categoryList1}" var="temp">
-                <li><a href="${ctx}/pre/productServlet?action=getListProductByCategoryLevelId&categoryLevelId=${temp.id}">${temp.name}</a></li>
+            <li><a href="${ctx}/Home?action=index">首页</a></li>
+            <c:forEach items="${productCategoryVoList}" var="temp">
+                <li><a href="${ctx}/Product?action=queryProductList&level=1&category=${temp.productCategory.id}">${temp.productCategory.name}</a></li>
             </c:forEach>
         </ul>
         <div class="m_ad">中秋送好礼！</div>
