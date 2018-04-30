@@ -10,9 +10,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
 
@@ -23,6 +21,29 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired(required=false)
 	private ProductMapper productMapper=null;
 	
+	private Object obj=null;
+	
+	/*public static void main(String[] args) {
+		Product p=new Product();
+		p.setCategoryLevel1Id(1);
+		p.setCategoryLevel2Id(2);
+		p.setCategoryLevel3Id(3);
+		p.setDescribe("小巧迷你");
+		p.setFileName("bb");
+		p.setIsDelete(0);
+		p.setName("联想小型笔记本");
+		p.setPrice(5000);
+		p.setStock(100);
+		
+		
+		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext-public.xml");	
+		ProductService productService=(ProductService)context.getBean("productService");
+		productService.addProduct(p);
+		System.out.println("添加结束");
+		
+	}*/
+	
+	@Override
 	public boolean addProduct(Product p) {
 		try {
 			int num=productMapper.addProduct(p);
@@ -34,43 +55,32 @@ public class ProductServiceImpl implements ProductService {
 		}
 		return flag;
 	}
-	
+
+	@Override
 	public boolean deleteProductById(int id) {
-		try {
-			int num=productMapper.deleteProductById(id);
-			if(num>0){
-				flag=true;
-			}
-		} catch (SQLException e) {
-			log.error(e);
-		}
-		return flag;
+		
+		
+		
+		return false;
 	}
-	
+
+	@Override
 	public boolean updateProduct(Product p) {
-		try {
-			int num=productMapper.updateProduct(p);
-			if(num>0){
-				flag=true;
-			}
-		} catch (SQLException e) {
-			log.error(e);
-		}
-		return flag;
+		
+		
+		
+		return false;
 	}
 
-	@Transactional(readOnly=true)
+	@Override
 	public Product getProductById(Integer id) {
-		Product p=null;
-		try {
-			p=productMapper.getProductById(id);
-		} catch (SQLException e) {
-			log.error(e);
-		}
-		return p;
+		
+		
+		
+		return null;
 	}
 
-	@Transactional(readOnly=true)
+	@Override
 	public int getProductCountByCategoryId(Integer categoryId) {
 		int count=0;
 		try {
@@ -81,7 +91,7 @@ public class ProductServiceImpl implements ProductService {
 		return count;
 	}
 
-	@Transactional(readOnly=true)
+	@Override
 	public int getTotalCount() {
 		int count=0;
 		try {
@@ -92,7 +102,7 @@ public class ProductServiceImpl implements ProductService {
 		return count;
 	}
 	
-	@Transactional(readOnly=true)
+	@Override
 	public List<Product> getListProductByCategoryLevelId(Integer categoryLevelId,Integer startIndex, Integer pageSize) {
 		try {
 			list=productMapper.getListProductByCategoryLevelId(categoryLevelId,startIndex, pageSize);
@@ -102,5 +112,8 @@ public class ProductServiceImpl implements ProductService {
 		return list;
 	}
 
+	
+	
+	
 	
 }

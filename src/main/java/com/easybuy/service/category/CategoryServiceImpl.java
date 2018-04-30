@@ -20,8 +20,7 @@ public class CategoryServiceImpl implements CategoryService {
 	private List<Category> list=new ArrayList();
 	boolean flag=false;
 	private Logger log=Logger.getLogger(CategoryServiceImpl.class);
-	private Object obj=null;
-	
+
 	@Autowired(required=false)
 	private CategoryMapper categoryMapper=null;
 	

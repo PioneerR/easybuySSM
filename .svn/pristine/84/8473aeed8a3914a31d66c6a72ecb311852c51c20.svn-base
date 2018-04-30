@@ -15,7 +15,7 @@ public interface ProductMapper {
 	 * @param 
 	 * @return
 	 */
-	public int addProduct(@Param("p")Product p)throws SQLException;
+	public int addProduct(@Param("product")Product p)throws SQLException;
 
 	/**
 	 * 通过产品id删除产品信息
@@ -29,7 +29,7 @@ public interface ProductMapper {
 	 * @param 
 	 * @return
 	 */
-	public int updateProduct(@Param("p")Product p)throws SQLException;
+	public int updateProduct(Product p)throws SQLException;
 
 	/**
 	 * 查询所有的产品信息
