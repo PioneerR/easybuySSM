@@ -44,8 +44,7 @@ public class HomeServlet extends AbstractServlet {
             vo.setProductList(productList);
         }
         //封装返回
-        request.setAttribute("vo1List", vo1List);
-        //request.setAttribute("vo1List", vo1List);		
+        request.setAttribute("vo1List", vo1List);	
 		return "index";
 	}
 

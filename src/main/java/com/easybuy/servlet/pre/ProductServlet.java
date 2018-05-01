@@ -4,6 +4,7 @@ import com.easybuy.entity.Product;
 import com.easybuy.service.category.CategoryService;
 import com.easybuy.service.product.ProductService;
 import com.easybuy.servlet.web.AbstractServlet;
+import com.easybuy.util.CategoryVo;
 import com.easybuy.util.Page;
 
 import java.util.List;
@@ -53,6 +54,11 @@ public class ProductServlet extends AbstractServlet  {
 		}
 		request.setAttribute("page", page);
 		
+		
+		List<CategoryVo> vo1List=categoryService.getListAllCategory();
+        //封装返回
+        request.setAttribute("vo1List", vo1List);
+        
 		String categoryLevelId=request.getParameter("categoryLevelId");
 		//获取首页数据
 		List<Product> list=productService.getListProductByCategoryLevelId(
@@ -64,7 +70,14 @@ public class ProductServlet extends AbstractServlet  {
 		return "/pre/product/productList";
 	}
 	
-	
+	public String getProductDetail(HttpServletRequest request,
+			HttpServletResponse response) throws Exception{
+		
+		String id=request.getParameter("id");
+		Product p=productService.getProductById(Integer.parseInt(id));
+		request.setAttribute("product", p);		
+		return "/pre/product/productDetail";
+	}
 	
 	
 	

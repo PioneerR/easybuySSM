@@ -43,10 +43,10 @@
                                     <c:forEach items="${temp.categoryVoList}" var="vo">
                                         <div class="zj_l_c">
                                             <h2>
-                                                <a href="${ctx}/Product?action=queryProductList&category=${vo.category.id}&level=2">${vo.category.name}</a>
+                                                <a href="${ctx}/pre/productServlet?action=getListProductByCategoryLevelId&categoryLevelId=${vo.category.id}">${vo.category.name}</a>
                                             </h2>
                                             <c:forEach items="${vo.categoryVoList}" var="vo2">
-                                                <a href="${ctx}/Product?action=queryProductList&category=${vo2.category.id}&level=3">${vo2.category.name}</a> |
+                                                <a href="${ctx}/pre/productServlet?action=getListProductByCategoryLevelId&categoryLevelId=${vo2.category.id}">${vo2.category.name}</a> |
                                             </c:forEach>
                                         </div>
                                     </c:forEach>
@@ -74,9 +74,9 @@
         <div class="banner">
             <div class="top_slide_wrap">
                 <ul class="slide_box bxslider">
-                    <li><img src="${ctx}/statics/images/ban1.jpg" width="740" height="401"/></li>
-                    <li><img src="${ctx}/statics/images/ban1.jpg" width="740" height="401"/></li>
-                    <li><img src="${ctx}/statics/images/ban1.jpg" width="740" height="401"/></li>
+                    <li><img src="${ctx}/statics/images/1.png" width="740" height="401"/></li>
+                    <li><img src="${ctx}/statics/images/2.png" width="740" height="401"/></li>
+                    <li><img src="${ctx}/statics/images/3.png" width="740" height="401"/></li>                   
                 </ul>
                 <div class="op_btns clearfix">
                     <a href="#" class="op_btn op_prev"><span></span></a>
@@ -135,11 +135,11 @@
             </form>
         </div>
     </div>
-    <div class="content mar_20">
-        <img src="${ctx}/statics/images/mban_1.jpg" width="1200" height="110"/>
-    </div>
     <!--Begin 进口 生鲜 Begin-->
     <c:forEach items="${vo1List}" var="temp" end="${fn:length(vo1List)}" varStatus="status">
+	    <div class="content mar_20">
+	        <img src="${ctx}/statics/images/mban_${temp.category.id}.png" width="1200" height="210"/>
+	    </div>    
         <div class="i_t mar_10">
             <span class="floor_num">${status.index+1}F</span>
             <span class="fl">${temp.category.name}</span>
@@ -160,7 +160,7 @@
                 <div class="fresh_txt">
                     <div class="fresh_txt_c">
                         <c:forEach items="${temp.categoryVoList}" var="vo">
-                            <a href="${ctx}/Product?action=queryProductList&category=${vo.category.id}&level=2">${vo.category.name}</a>
+                            <a href="${ctx}/pre/productServlet?action=getListProductByCategoryLevelId&categoryLevelId=${vo.category.id}">${vo.category.name}</a>
                         </c:forEach>
                     </div>
                 </div>
@@ -174,7 +174,7 @@
                                 <font>￥<span>${productVo.price}</span></font> &nbsp;
                             </div>
                             <div class="img">
-                                <a href="${ctx}/Product?action=queryProductDeatil&id=${productVo.id}">
+                                <a href="${ctx}/pre/productServlet?action=getProductDetail&id=${productVo.id}">
                                     <img src="${ctx}/files/${productVo.fileName}" width="185"  height="155"/>
                                 </a>
                             </div>

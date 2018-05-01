@@ -13,7 +13,6 @@
 <div id="searchBar">
     <%@ include file="/common/pre/searchBar.jsp" %>
 </div>
-<!--Begin Header Begin-->
 <!--End Header End-->
 <!--Begin Menu Begin-->
 <div class="menu_bg">
@@ -107,21 +106,16 @@
                         <tr>
                             <td>商品名称：${product.name}</td>
                             <td>商品价格：${product.price}</td>
-                            <td>品牌： 迪奥（Dior）</td>
-                            <td>上架时间：2015-09-06 09:19:09 </td>
+                            <td>品牌： Apple</td>                       
+                        	<td>上架时间：${product.createTime}</td>
                         </tr>
                         <tr>
                             <td>商品毛重：160.00g</td>
-                            <td>商品产地：法国</td>
-                            <td>香调：果香调香型：淡香水/香露EDT</td>
-                            <td>&nbsp;</td>
-                        </tr>
+                            <td>商品产地：美国</td>
+                        </tr>   
                         <tr>
-                            <td>容量：1ml-15ml </td>
-                            <td>类型：女士香水，Q版香水，组合套装</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
+                        	<td>&nbsp;</td> 
+                        </tr>                    
                     </table>
                 </div>
             </div>
@@ -131,7 +125,7 @@
                     <table border="0" align="center" style="width:745px; font-size:14px; font-family:'宋体';" cellspacing="0" cellpadding="0">
                         <tr>
                             <td>
-                                ${product.description}
+                                ${product.describe}
                             </td>
                         </tr>
                     </table>

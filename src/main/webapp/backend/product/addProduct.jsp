@@ -110,7 +110,7 @@
                                 <input type="submit" value="商品上架" class="s_btn">
                             </c:when>
                             <c:otherwise>
-                                <input type="submit" value="确定修改" class="s_btn">
+                                <input type="submit" value="确定" class="s_btn">
                             </c:otherwise>
                         </c:choose>
                     </td>
