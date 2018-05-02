@@ -15,8 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 
 @WebServlet("/backend/categoryServlet")
 public class CategoryServlet extends AbstractServlet {
@@ -25,7 +25,7 @@ public class CategoryServlet extends AbstractServlet {
 	private ProductService	productService;
 	
 	public void init() throws ServletException {
-		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext-public.xml");	
+		WebApplicationContext context = ContextLoader.getCurrentWebApplicationContext();
 		this.categoryService=(CategoryService)context.getBean("categoryService");
 		this.productService=(ProductService)context.getBean("productService");
 	}

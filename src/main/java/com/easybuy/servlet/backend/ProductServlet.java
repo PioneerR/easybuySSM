@@ -27,8 +27,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 
 @WebServlet("/backend/productServlet")
 public class ProductServlet extends AbstractServlet  {
@@ -60,7 +60,7 @@ public class ProductServlet extends AbstractServlet  {
 					+ " is not a directory");
 		}
 		//初始化service
-		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext-public.xml");	
+		WebApplicationContext context = ContextLoader.getCurrentWebApplicationContext();	
 		this.productService=(ProductService)context.getBean("productService");
 		this.categoryService=(CategoryService)context.getBean("categoryService");
 	}

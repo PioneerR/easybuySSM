@@ -13,17 +13,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 
 @WebServlet("/home")
 public class HomeServlet extends AbstractServlet {
-	
+
 	private ProductService productService;
 	private CategoryService categoryService;
 	
 	public void init() throws ServletException {
-		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext-public.xml");	
+		WebApplicationContext context = ContextLoader.getCurrentWebApplicationContext();			
 		this.productService=(ProductService)context.getBean("productService");
 		this.categoryService=(CategoryService)context.getBean("categoryService");
 	}
