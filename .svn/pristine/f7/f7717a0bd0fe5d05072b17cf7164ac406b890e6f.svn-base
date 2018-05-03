@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductService {
 	private List<Product> list=new ArrayList();
 	boolean flag=false;
 	private Logger log=Logger.getLogger(ProductServiceImpl.class);
-
+	
 	@Autowired(required=false)
 	private ProductMapper productMapper=null;
 	
