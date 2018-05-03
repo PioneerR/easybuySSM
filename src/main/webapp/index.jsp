@@ -43,10 +43,10 @@
                                     <c:forEach items="${temp.categoryVoList}" var="vo">
                                         <div class="zj_l_c">
                                             <h2>
-                                                <a href="${ctx}/pre/productServlet?action=getListProduct&categoryLevelId=${vo.category.id}">${vo.category.name}</a>
+                                                <a href="${ctx}/pre/productServlet?action=getListProductByCategoryLevelId&categoryLevelId=${vo.category.id}">${vo.category.name}</a>
                                             </h2>
                                             <c:forEach items="${vo.categoryVoList}" var="vo2">
-                                                <a href="${ctx}/pre/productServlet?action=getListProduct&categoryLevelId=${vo2.category.id}">${vo2.category.name}</a> |
+                                                <a href="${ctx}/pre/productServlet?action=getListProductByCategoryLevelId&categoryLevelId=${vo2.category.id}">${vo2.category.name}</a> |
                                             </c:forEach>
                                         </div>
                                     </c:forEach>
@@ -60,7 +60,7 @@
         <ul class="menu_r">
             <li><a href="${ctx}/home?action=index">首页</a></li>
             <c:forEach items="${vo1List}" var="temp">
-                <li><a href="${ctx}/pre/productServlet?action=getListProduct&categoryLevelId=${temp.category.id}">${temp.category.name}</a></li>
+                <li><a href="${ctx}/pre/productServlet?action=getListProductByCategoryLevelId&categoryLevelId=${temp.category.id}">${temp.category.name}</a></li>
             </c:forEach>
         </ul>
         <div class="m_ad">中秋送好礼！</div>
@@ -160,7 +160,7 @@
                 <div class="fresh_txt">
                     <div class="fresh_txt_c">
                         <c:forEach items="${temp.categoryVoList}" var="vo">
-                            <a href="${ctx}/pre/productServlet?action=getListProduct&categoryLevelId=${vo.category.id}">${vo.category.name}</a>
+                            <a href="${ctx}/pre/productServlet?action=getListProductByCategoryLevelId&categoryLevelId=${vo.category.id}">${vo.category.name}</a>
                         </c:forEach>
                     </div>
                 </div>

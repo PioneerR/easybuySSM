@@ -76,9 +76,7 @@ public class ProductServlet extends AbstractServlet  {
 			HttpServletResponse response) throws Exception{
 		
 		String id=request.getParameter("id");
-		Product p=productService.getProductById(Integer.parseInt(id));		
-		List<CategoryVo> vo1List=categoryService.getListAllCategory();    
-        request.setAttribute("vo1List", vo1List);        
+		Product p=productService.getProductById(Integer.parseInt(id));
 		request.setAttribute("product", p);		
 		return "/pre/product/productDetail";
 	}
@@ -88,6 +86,7 @@ public class ProductServlet extends AbstractServlet  {
 		
 		//分页功能
 		int totalCount=productService.getTotalCount();
+		//创建Page对象的时候，totalCount\totalPageCount都初始化成功
 		Page page=new Page(totalCount);
 		String currentPageNoStr = request.getParameter("currentPageNo");
 		String pageSizeStr=request.getParameter("pageSize");
@@ -102,34 +101,20 @@ public class ProductServlet extends AbstractServlet  {
 		}
 		request.setAttribute("page", page);
 		
-		//取得数据
 		List<CategoryVo> vo1List=categoryService.getListAllCategory();
+        //封装返回
         request.setAttribute("vo1List", vo1List);
         
-<<<<<<< .mine
-        String proName=request.getParameter("proName");
-        String categoryId=request.getParameter("categoryLevelId");
-        int total=0;        
-        List<Product> list=null;
-        if(categoryId!=null){
-        	int id=Integer.parseInt(categoryId);
-        	list=productService.getListProduct(proName, id, page.getStartIndex(),page.getPageSize());
-        	total=productService.getProductCount(id,proName);
-        }else{
-        	list=productService.getListProduct(proName, null, page.getStartIndex(),page.getPageSize());
-        }
-    
-=======
 		String proName=request.getParameter("proName");
 		//获取首页数据
 		List<Product> list=productService.getListProduct
 				(proName, null, page.getStartIndex(),page.getPageSize());
->>>>>>> .r68
-        //存储数据
+		int total=productService.getProductCount(null,proName);
 		request.setAttribute("total", total);
 		request.setAttribute("productList", list);
+		//TODO 以下值应该设置为多少？根据menu的值，显示不同的leftBar的css样式
 		request.setAttribute("menu",5);
-		//返回页面
+		//取到数据后，转发到categoryList.jsp页面，这个页面在/backend下
 		return "/pre/product/productList";
 	}
 	
