@@ -8,6 +8,13 @@
     <div class="logo">
         <a href="${ctx}/home?action=index"><img src="${ctx}/statics/images/logo.png"></a>
     </div>
+    <div class="search">
+        <form action="${ctx}/pre/productServlet?action=getListProduct" method="post">
+            <input type="text" value="${keyWord}" name="keyword" class="s_ipt">
+            <input type="submit" value="搜索" class="s_btn">
+        </form>
+        <!--推荐最热商品-->
+    </div>
     <div class="i_car">
         <div class="car_t">
             购物车 [

@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Service("productService")
 public class ProductServiceImpl implements ProductService {
-	
+
 	private List<Product> list=new ArrayList();
 	boolean flag=false;
 	private Logger log=Logger.getLogger(ProductServiceImpl.class);
@@ -79,12 +79,12 @@ public class ProductServiceImpl implements ProductService {
 		}
 		return p;
 	}
-	
+
 	@Transactional(readOnly=true)
-	public int getProductCount(Integer categoryId,String proName) {
+	public int getProductCountByCategoryId(Integer categoryId) {
 		int count=0;
 		try {
-			count=productMapper.getProductCount(categoryId,proName);
+			count=productMapper.getProductCountByCategoryId(categoryId);
 		} catch (Exception e) {
 			log.error(e);
 		}

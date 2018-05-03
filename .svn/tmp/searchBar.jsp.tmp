@@ -8,6 +8,13 @@
     <div class="logo">
         <a href="${ctx}/home?action=index"><img src="${ctx}/statics/images/logo.png"></a>
     </div>
+    <div class="search">
+        <form action="${ctx}/pre/productServlet?action=getListProduct" method="post">
+            <input type="text" value="${keyWord}" name="keyword" class="s_ipt">
+            <input type="submit" value="搜索" class="s_btn">
+        </form>
+        <!--推荐最热商品-->
+    </div>
     <div class="i_car">
         <div class="car_t">
             购物车 [
@@ -41,10 +48,10 @@
             </ul>
             <div class="price_sum">共计&nbsp;<font color="#ff4e00">￥</font><span>${sessionScope.cart.sum}</span></div>
             <c:if test="${sessionScope.loginUser==null}">
-                <div class="price_a"><a href="${ctx}/Login?action=toLogin">去登录</a></div>
+                <div class="price_a"><a href="${ctx}/pre/CartServlet?action=toSettlement">去登录</a></div>
             </c:if>
             <c:if test="${sessionScope.loginUser!=null}">
-                <div class="price_a"><a href="${ctx}/Cart?action=toSettlement">去结算</a></div>
+                <div class="price_a"><a href="${ctx}/CartServlet?action=toSettlement">去结算</a></div>
             </c:if>
             <!--End 购物车已登录 End-->
         </div>
