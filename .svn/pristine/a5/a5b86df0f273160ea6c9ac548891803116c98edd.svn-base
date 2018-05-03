@@ -49,6 +49,7 @@ public class ProductServlet extends AbstractServlet  {
 		
 		//分页功能
 		int totalCount=productService.getTotalCount();
+		//创建Page对象的时候，totalCount\totalPageCount都初始化成功
 		Page page=new Page(totalCount);
 		String currentPageNoStr = request.getParameter("currentPageNo");
 		String pageSizeStr=request.getParameter("pageSize");
@@ -63,7 +64,6 @@ public class ProductServlet extends AbstractServlet  {
 		}
 		request.setAttribute("page", page);
 		
-		//取得数据
 		List<CategoryVo> vo1List=categoryService.getListAllCategory();
         request.setAttribute("vo1List", vo1List);
         
@@ -79,11 +79,9 @@ public class ProductServlet extends AbstractServlet  {
         	list=productService.getListProduct(proName, null, page.getStartIndex(),page.getPageSize());
         }
     
-        //存储数据
 		request.setAttribute("total", total);
 		request.setAttribute("productList", list);
 		request.setAttribute("menu",5);
-		//返回页面
 		return "/pre/product/productList";
 	}
 	
