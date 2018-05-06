@@ -4,7 +4,6 @@ import com.easybuy.entity.Product;
 import com.easybuy.service.product.ProductService;
 import com.easybuy.servlet.web.AbstractServlet;
 import com.easybuy.util.EmptyUtils;
-import com.easybuy.util.RedisUtil;
 import com.easybuy.util.ReturnResult;
 import com.easybuy.util.SerializeUtil;
 
@@ -18,15 +17,20 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
 //@WebServlet(urlPatterns={"/pre/favorite"})
 public class FavoriteServlet extends AbstractServlet {
 
 	private ProductService productService;
+	private JedisPool jedisPool;
+	private Jedis jedis;
 	
 	public void init() throws ServletException {
 		WebApplicationContext context = ContextLoader.getCurrentWebApplicationContext();
 		this.productService=(ProductService)context.getBean("productService");
+		jedisPool=(JedisPool)context.getBean("jedisPool");
+		jedis = jedisPool.getResource();
 	}
 	
 	public Class getServletClass() {
@@ -37,7 +41,6 @@ public class FavoriteServlet extends AbstractServlet {
 			HttpServletResponse response) throws Exception{
 		
 		ReturnResult result=new ReturnResult();
-		Jedis jedis=RedisUtil.getJedis();
 		//从redis中取出List<Product> list集合，如果为null，则创建一个
 		String userId=request.getParameter("userId");
 		if(jedis!=null){
@@ -67,9 +70,8 @@ public class FavoriteServlet extends AbstractServlet {
 			//将list集合序列化成String
 			productList=SerializeUtil.serialize(list);			
 			//存入redis
-			jedis.set(userId.getBytes(), productList);			
-			RedisUtil.returnResource(jedis);
-		}		
+			jedis.set(userId.getBytes(), productList);
+		}
 		result.setData(userId);
 		result.returnSuccess();
 		return result;
@@ -82,9 +84,8 @@ public class FavoriteServlet extends AbstractServlet {
 		if(userId==null){
 			return "/pre/product/favoriteList";
 		}
-		Jedis jedis=RedisUtil.getJedis();
-		byte[] productList=jedis.get(userId.getBytes());		
-		RedisUtil.returnResource(jedis);
+		byte[] productList=jedis.get(userId.getBytes());
+		jedisPool.returnResourceObject(jedis);
 		
 		List<Product> list=null;
 		if(EmptyUtils.isNotEmpty(productList)){
