@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getUserById" resultType="User">
 		select * from user
 			where id =#{id}
-	</select>	
+	</select>
 	<!-- 增加用户 -->
     <insert id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
         insert into user 
@@ -58,9 +58,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     <select id="getListUser" resultType="User">
     	select * from user limit #{startIndex},#{pageSize}
-    </select>
-    <select id="getTotalCount" resultType="int">
-    	select count(1) from user;
     </select>
     
     

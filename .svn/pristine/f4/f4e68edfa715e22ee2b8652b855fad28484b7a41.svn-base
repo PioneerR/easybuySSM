@@ -65,7 +65,6 @@ public interface UserMapper {
      */
     User getUserByEmail(@Param("email")String email);
 	List<User> getListUser(@Param("startIndex")Integer startIndex, @Param("pageSize")Integer pageSize);
-	int getTotalCount();
     
     
     

@@ -363,7 +363,7 @@ function checkUser() {
     var userName = $("input[name='userName']").val();
     var identityCode = $("input[name='identityCode']").val();
     var email = $("input[name='email']").val();
-    var mobile = $("input[name='phone']").val();
+    var mobile = $("input[name='mobile']").val();
     var type = $("select[name='type']").val();
     var password = $("input[name='password']").val();
     var repPassword = $("input[name='repPassword']").val();
@@ -374,7 +374,7 @@ function checkUser() {
         return false;
     }
     
-    if(loginName.length<2 || loginName.length>10){
+    if(loginName.length<2 || loginName>10){
         showMessage("登录名不能小于两个字符或者大于十个字符.");
         return false;
     }
@@ -410,10 +410,9 @@ function checkUser() {
         return false;
     }
     return true;
-    alert("check");
 }
 
-function toAddUser() {
+function addUser() {
     if(!checkUser()){
     	return false;
     }
@@ -421,7 +420,7 @@ function toAddUser() {
     var userName = $("input[name='userName']").val();
     var identityCode = $("input[name='identityCode']").val();
     var email = $("input[name='email']").val();
-    var phone = $("input[name='phone']").val();
+    var mobile = $("input[name='phone']").val();
     var type = $("select[name='type']").val();
     var id = $("input[name='id']").val();
     var password = $("input[name='password']").val();
@@ -442,7 +441,7 @@ function toAddUser() {
         success: function (jsonStr) {
             var result = eval("(" + jsonStr + ")");
             if (result.status == 1) {
-                window.location.href=contextPath+"/backend/userServlet?action=getListUser";
+                window.location.href=contextPath+"/admin/user?action=queryUserList";
             }else{
             	showMessage(result.message);
             }
@@ -457,7 +456,7 @@ function deleteUserId(id) {
 	var bool=window.confirm("确认删除此用户信息么?");
 	if(bool){
 		$.ajax({
-	        url: contextPath + "/backend/userServlet",
+	        url: contextPath + "/admin/user",
 	        method: "post",
 	        data: {
 	            id: id,
