@@ -46,7 +46,7 @@
            <div class="des_price">
                 库存：<b>${product.stock}</b><br/>
             </div>
-            <div class="des_choice">
+            <!-- <div class="des_choice">
                 <span class="fl">型号选择：</span>
                 <ul>
                     <li class="checked">30ml
@@ -73,8 +73,7 @@
                         <div class="ch_img"></div>
                     </li>
                 </ul>
-            </div>
-            <br>
+            </div> -->
             <br>
             <div class="des_join">
                 <div class="j_nums">
@@ -156,7 +155,7 @@
 	        "dataType":"json",
 	        "method":"post",
 	        "success":function(data){
-	        	 alert("添加已被调用");
+	        	 alert("已添加到购物车");
 	        	queryShoppingCart();  		 
 	        }
 	    }); 
@@ -171,10 +170,8 @@
 					"action":"queryShoppingCartItem"
 				},
 				"dataType":"json",
-				"success":function(data){
-					alert(data);
-					var itemCount = data.length;
-					alert(itemCount);
+				"success":function(data){					
+					var itemCount = data.length;					
 					if(data.length>0){
 						$(".car_t").html("购物车["+itemCount+"]");
 					}else{
