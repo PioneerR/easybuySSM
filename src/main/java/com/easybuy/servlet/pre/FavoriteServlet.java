@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,7 +20,7 @@ import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
 import redis.clients.jedis.Jedis;
 
-//@WebServlet(urlPatterns={"/pre/favorite"})
+@WebServlet(urlPatterns={"/pre/favorite"})
 public class FavoriteServlet extends AbstractServlet {
 
 	private ProductService productService;

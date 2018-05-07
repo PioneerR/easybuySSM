@@ -6,6 +6,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	
 	<settings>
+		<!-- 设置mybatis全局懒加载 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
 		<setting name="logImpl" value="LOG4J"/>
 	</settings>
 	<typeAliases>
