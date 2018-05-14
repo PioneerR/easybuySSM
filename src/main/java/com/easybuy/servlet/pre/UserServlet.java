@@ -2,6 +2,7 @@ package com.easybuy.servlet.pre;
 
 import com.easybuy.entity.User;
 import com.easybuy.service.user.UserService;
+import com.easybuy.util.MD5Util;
 import com.easybuy.util.TimeUtil;
 
 import java.io.IOException;
@@ -53,7 +54,8 @@ public class UserServlet extends HttpServlet {
 			String phone=request.getParameter("phone").trim();
 			
 			user.setLoginName(loginName);
-			user.setPassword(password1);
+			String passwordMd5=MD5Util.md5Hex(password1);
+			user.setPassword(passwordMd5);
 			user.setEmail(email);
 			user.setPhone(phone);
 			//TimeUtil.getTime(new Date())获得的数据类型是Timestamp类型

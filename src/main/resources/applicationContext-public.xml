@@ -48,6 +48,21 @@
   <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
   		<property name="dataSource" ref="dataSource"></property>
   </bean>
+  <!-- <aop:config proxy-target-class="true">
+  	<aop:pointcut expression="execution(* *com.easybuy.service..*.*(..))" id="transService"/>
+  	<aop:advisor advice-ref="txAdvice" pointcut-ref="transService"/>
+  </aop:config>
+  <tx:advice transaction-manager="txManager">
+  	<tx:attributes>
+  		<tx:method name="get*" propagation="SUPPORTS" read-only="true"/> 
+  		<tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.RuntimeException"/>
+  		<tx:method name="delete*" propagation="REQUIRED" rollback-for="java.lang.RuntimeException"/>
+  		<tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.RuntimeException"/>
+  		<tx:method name="*" propagation="REQUIRED" rollback-for="java.lang.RuntimeException"/>
+  	</tx:attributes>
+  </tx:advice> -->
+  
+  
   
   <!-- 六、导入分模块配置文件 -->
   <import resource="user/applicationContext-public.xml"/>

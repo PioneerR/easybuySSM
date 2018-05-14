@@ -1,19 +1,16 @@
 package com.easybuy.service.order;
 
 
-import java.util.List;
-
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.easybuy.dao.order.OrderMapper;
 import com.easybuy.entity.Order;
 import com.easybuy.entity.User;
 import com.easybuy.entity.UserAddress;
-import com.easybuy.util.ShoppingCartItem;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 @Service("orderService")
 public class OrderServiceImpl implements OrderService{
  	@Autowired
@@ -28,6 +25,7 @@ public class OrderServiceImpl implements OrderService{
 		}
 		return flag;
 	}
+	
 	@Transactional(readOnly=true)
 	public List<Order> findAllOrdersByUserId(int userId) {
 		List<Order> list =orderMapper.getAllOrdersByUserId(userId);
@@ -43,6 +41,7 @@ public class OrderServiceImpl implements OrderService{
 		}
 		return flag;
 	}
+	
 	@Transactional(readOnly=true)
 	public Order findOrderById(int id) {
 		Order order = orderMapper.getOrderById(id);

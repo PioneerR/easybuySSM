@@ -54,7 +54,7 @@ public class OrderServlet extends AbstractServlet {
 		if(userIdStr!=null){
 			int userId = Integer.parseInt(userIdStr);
 			userAddress =userAddressService.getUserAddressByUserId(userId);
-logger.debug("userAddressInfo"+userAddress.getAddress());
+//logger.debug("userAddressInfo"+userAddress.getAddress());
 			/*if(userAddress==null){
 				System.out.println("userAddress is null");
 			}*/
@@ -151,9 +151,10 @@ logger.debug("userAddressInfo"+userAddress.getAddress());
 				if(status ==6){
 					List<OrderDetail> orderDetailList = orderDetailService.listOrderDetailBySerialNumber(serialNumber);
 					for(OrderDetail orderDetail:orderDetailList){
-						int productId = orderDetail.getProductId();
+//						int productId = orderDetail.getProductId();
 						int quantity = orderDetail.getQuantity();
-						Product product = productService.getProductById(productId);
+//						Product product = productService.getProductById(productId);
+						Product product = orderDetail.getProduct();
 						product.setStock(product.getStock()+quantity);
 						productService.updateProduct(product);					
 					}

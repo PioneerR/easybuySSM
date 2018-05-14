@@ -76,20 +76,14 @@
 		                <td class="p_td">详细信息</td>
 		                <td>${requestScope.userAddress.address}</td>
 		                <td class="p_td">邮政编码</td>
-		                <td>6011111</td>
+		                <td>361000</td>
 		              </tr>
 		              <tr>
 		                <td class="p_td">电话</td>
 		                <td></td>
 		                <td class="p_td">手机</td>
 		                <td>${sessionScope.loginUser.phone}</td>
-		              </tr>
-		              <tr>
-		                <td class="p_td">标志建筑</td>
-		                <td></td>
-		                <td class="p_td">最佳送货时间</td>
-		                <td></td>
-		              </tr>
+		              </tr>		              
 		            </table>
 		            <div class="two_t">
 		            	配送方式
@@ -105,33 +99,33 @@
 		              	<td align="center"><input type="checkbox" name="ch" checked="checked" value="1"/></td>
 		                <td align="center" style="font-size:14px;"><b>申通快递</b></td>
 		                <td>江、浙、沪地区首重为15元/KG，其他地区18元/KG，续重均为5-6元/KG， 云南地区为8元</td>
-		                <td align="center">￥15.00</td>
+		                <td align="center">￥10.00</td>
 		              </tr>
 		              <tr>
 		              	<td align="center"><input type="checkbox" name="ch" value="2"/></td>
-		                <td align="center" style="font-size:14px;"><b>城际快递</b></td>
+		                <td align="center" style="font-size:14px;"><b>顺丰快递</b></td>
 		                <td>运费固定</td>
-		                <td align="center">￥15.00</td>
+		                <td align="center">￥21.00</td>
 		              </tr>
 		              <tr>
 		              	<td align="center"><input type="checkbox" name="ch" value="3"/></td>
-		                <td align="center" style="font-size:14px;"><b>邮局平邮</b></td>
+		                <td align="center" style="font-size:14px;"><b>圆通快递</b></td>
 		                <td>运费固定</td>
-		                <td align="center">￥15.00</td>
+		                <td align="center">￥12.00</td>
 		              </tr>	    
 		            </table> 		            
 		            <div class="two_t">
 		            	支付方式
 		            </div>
 		            <ul class="pay">
-		                <li class="checked" value="1" onclick="selectPayType(jq(this));">余额支付<div class="ch_img"></div></li>
-		                <li value="2" onclick="selectPayType(jq(this));">银行亏款/转账<div class="ch_img"></div></li>
-		                <li value="4" onclick="selectPayType(jq(this));">货到付款<div class="ch_img"></div></li>
 		                <li value="3" onclick="selectPayType(jq(this));">支付宝<div class="ch_img"></div></li>
+		                <li class="checked" value="1" onclick="selectPayType(jq(this));">微信支付<div class="ch_img"></div></li>
+		                <li value="2" onclick="selectPayType(jq(this));">银行转账<div class="ch_img"></div></li>
+		                <li value="4" onclick="selectPayType(jq(this));">货到付款<div class="ch_img"></div></li>
 		            </ul>
 		        
 		            <table border="0" style="width:900px; margin-top:20px;" cellspacing="0" cellpadding="0">
-		              
+ 
 		              <tr height="70">
 		                <td align="right">
 		                	<b style="font-size:14px;">应付款金额：<span style="font-size:22px; color:#ff4e00;">￥${sessionScope.cart.sum}</span></b>

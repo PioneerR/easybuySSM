@@ -25,6 +25,10 @@ public class LoginTest {
 			MyBatisUtil.closeSqlSession(sqls);
 		}
 		logger.debug("testLogin"+user.getLoginName()+user.getPassword());
+		
+		
 	}
+	
+	
 
 }

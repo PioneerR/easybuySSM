@@ -28,6 +28,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<association property="product" javaType="Product">
 			<id property="id" column="p_id"/>
 			<result property="name" column="name"/>
+			<result property="describe" column="describe"/>
+			<result property="price" column="price"/>
+			<result property="stock" column="stock"/>
+			<result property="categoryLevel1Id" column="categoryLevel1Id"/>
+			<result property="categoryLevel2Id" column="categoryLevel2Id"/>
+			<result property="categoryLevel3Id" column="categoryLevel3Id"/>
 			<result property="fileName" column="fileName"/>
 		</association>
 	</resultMap>

@@ -24,6 +24,9 @@
     <script type="text/javascript" src="../../statics/js/common/hban.js"></script>
     <script type="text/javascript" src="../../statics/js/common/tban.js"></script>
 	<script type="text/javascript" src="../../statics/js/common/lrscroll_1.js"></script>
+	<link rel="stylesheet" href="../../statics/verify/css/verify.css"/>
+    <script src="../../statics/verify/js/jquery.min.js"></script>
+    <script src="../../statics/verify/js/verify.js"></script>
 </head>
 <body>  
 	<!--Begin Header Begin-->
@@ -52,7 +55,7 @@
 	     <img src="../../statics/images/l_img.png" width="611" height="425" style="height:375px;width:367px; "/>
 			<div class="reg_c" style="height: 570px; width: 619px; ">
 			
-	        	<form action="userServlet" method="post" style="height: 553px; width: 680px; ">
+	        	<form id="form"  onsubmit="return verify()" action="userServlet" method="post" style="height: 553px; width: 680px; ">
 	        		<input type="hidden" name="action" value="register" />
 		            <table border="0" style="width: 702px; font-size:14px; margin-top:20px;" cellspacing="0" cellpadding="0">
 		              <tr height="50" valign="top">
@@ -89,29 +92,36 @@
 		                <td><input type="text" value="" class="l_tel" name="phone" id="phone" pattern="1[0-9]{10}" required/></td>
 		              	<td><span id="phoneInfo"></span></td>
 		              </tr>		              
-		              <tr height="50">
-		                <td align="right"> <font color="#ff4e00">*</font>&nbsp;验证码 &nbsp;</td>
+		              <!-- <tr height="50" >
+		                <td></td>
 		                <td>
 		                    <input type="text" value="" class="l_ipt"  />
 		                    <a href="#" style="font-size:12px; font-family:'宋体';">换一张</a>
 		                </td>
-		              </tr>
+		              </tr> -->
 		              <tr>
 		              	<td>&nbsp;</td>
 		                <td style="font-size:12px; padding-top:20px;">
 		                	<span style="font-family:'宋体';" class="fl">
-		                    	<label class="r_rad"><input type="checkbox" /></label><label class="r_txt">我已阅读并接受《用户协议》</label>
+		                    	<label class="r_rad"><input type="checkbox" checked="checked" /></label><label class="r_txt">我已阅读并接受《用户协议》</label>
 		                    </span>
 		                </td>
 		              </tr>
 		              <tr height="60">
 		              	<td>&nbsp;</td>
-		                <td><input type="submit" value="立即注册" class="log_btn" /></td>
+		                <td><input id="button" type="submit" value="立即注册" class="log_btn" /></td>
 		              </tr>
+		              <tr>
+		                 <td><input type="text" value="0" name="check_verify" id="check_verify" hidden /></td>
+                      </tr>                  
 		            </table>
+		            <div  id="mpanel1"></div>
+		            <div ><span id="buttoninfo"></span> </div>
+		            
 	            </form>
 	            
 	        </div>
+	        
 	    </div>
 	</div>
 	<!--End Login End--> 
@@ -211,6 +221,19 @@
 	        	$("#phoneInfo").html("<span style='color:green'>✔</span>");
 	        }
 	    }	    
+	    
+	   function verify(){
+	      //     alert("verify");
+	          var ver=$("#check_verify").val();
+	          if (ver==1) {
+	           $("#verify").val("0");
+				return true;
+			} else {
+               $("#buttoninfo").text("必须先通过验证码");
+               return false;
+			}
+           
+        };
 	    //点击用户名框，提示信息消除
 	    $("#loginName").click(function(){
 	    	$("#userInfo").html("");
@@ -260,7 +283,37 @@
 	        	$("#passwordInfo2").html("<span style='color:green'>✔</span>");
 	        }
 	    });	
-	  	
+	    //选字验证码
+	  	 $('#mpanel1').pointsVerify({
+        defaultNum : 4, //默认的文字数量
+        checkNum : 2,   //校对的文字数量
+        vSpace : 5, //间隔
+        mode:"pop",
+        imgName : ['1.jpg', '2.jpg'],
+        imgSize : {
+            width: '450px',
+            height: '300px',
+        },
+        barSize : {
+            width : '600px',
+            height : '40px',
+        },
+        ready : function() {
+        },
+        success : function() {
+      //      alert('验证成功！');
+           $("#check_verify").val("1");
+        //    submit();
+        
+     
+        },
+        error : function() {
+        //                  alert('验证失败！');
+        
+        $("#check_verify").val("0");
+        }
+
+    });
 	</script>
 	</body>
 </html>

@@ -8,8 +8,7 @@
     <c:if test="${recentProducts!=null}">
         <div class="l_history">
         <div class="fav_t">我的收藏</div>
-        <c:forEach items="${recentProducts}" var="temp" begin="${fn:length(recentProducts)-4}"
-        		end="${fn:length(recentProducts)}">
+        <c:forEach items="${recentProducts}" var="temp" begin="${fn:length(recentProducts)-4}" end="${fn:length(recentProducts)}">
         <ul>
             <li>
                 <div class="img">

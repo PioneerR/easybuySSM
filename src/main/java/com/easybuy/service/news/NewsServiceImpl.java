@@ -11,8 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Service("newsService")
 public class NewsServiceImpl implements NewsService {
-	@Autowired
+	@Autowired(required=false)
 	private NewsMapper newsMapper;
+	
 	private News news;
 	@Override
 	public boolean addNews(News n) {
@@ -38,13 +39,15 @@ public class NewsServiceImpl implements NewsService {
 		return false;
 	}
 
+	@Transactional(readOnly=true)
 	@Override
 	public List<News> getAllNews() {
 		List<News> listNews=newsMapper.getAllNews();
 				
 		return listNews;
 	}
-
+	
+	@Transactional(readOnly=true)
 	@Override
 	public News getNewsById(String id) {
 		int idNum = Integer.valueOf(id).intValue();

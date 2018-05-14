@@ -2,6 +2,7 @@ package com.easybuy.service.user;
 
 import com.easybuy.dao.user.UserMapper;
 import com.easybuy.entity.User;
+import com.easybuy.util.MD5Util;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -17,8 +18,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Service("userService")
 public class UserServiceImpl implements UserService {
-	@Autowired
+	
+	@Autowired(required=false)
 	private UserMapper userMapper;
+	
 	@Override
 	public boolean addUser(User user) {
 		boolean flag=false;
@@ -53,6 +56,7 @@ public class UserServiceImpl implements UserService {
 		return flag;
 	}
 
+	@Transactional(readOnly=true)
 	@Override
 	public List<User> listUserByType(String typeName ) {
 		List<User> list=new ArrayList<>();
@@ -68,13 +72,15 @@ public class UserServiceImpl implements UserService {
 		return list;
 	}
 
+	
 	@Override
 	public List<User> getAllAdmin() {
 		
 				
 		return null;
 	}
-
+	
+	@Transactional(readOnly=true)
 	@Override
 	public User getUserById(int id) {
 		
@@ -120,12 +126,16 @@ public class UserServiceImpl implements UserService {
 			System.out.println("null");
 		}
 	}
+	
+	@Transactional(readOnly=true)
 	@Override
 	public User loginCheck(String loginName, String password) {
-		User user=userMapper.getLogin(loginName, password);	
+		String passwordMd5=MD5Util.md5Hex(password);
+		User user=userMapper.getLogin(loginName, passwordMd5);	
 		return user;
 	}
-
+	
+	@Transactional(readOnly=true)
 	@Override
 	public int getTotalCount() throws SQLException {
 		int count=userMapper.getTotalCount();

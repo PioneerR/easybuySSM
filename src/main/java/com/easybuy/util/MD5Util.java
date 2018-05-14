@@ -46,12 +46,12 @@ public class MD5Util {
 		
 		
 		// 测试MD5加密
-		/* 
+ 
 		public static void main(String[] args) {
-			System.out.println(Util_MD5.md5Hex("123"));
+			System.out.println(MD5Util.md5Hex("123456"));
 		}
 
-		*/
+		
 		
 	
 	
